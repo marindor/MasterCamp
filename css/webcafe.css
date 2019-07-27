@@ -35,30 +35,46 @@ a{
     background: #38303e;
     color: #fff;
     display: flex;
-    flex-direction: row; /*row 즉 행방향 기준을 통해서 세로 정렬을 시도하고 있다.
+    flex-direction: row; /*row 즉 행방향 기준을 통해서 세로 정렬을 시도하고 있다.*/
     flex-wrap: wrap;  /*nowrap은 줄바꿈 안함 */
   }
   .logo, .member, .search-form{
     width:100%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   /*모바일 멤버링크*/
   .member{
     background: #988574;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     order: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;   
   }
-}  
+  .member a{
+    display: inline-block;
+    /* background: blue; */
+    padding: 0.5em 1em;
+    margin-right: -1em;
+  }
+  .member a:hover, .member a:focus{
+    color: #ff0;
+  }
+
+  .myModule{
+    vertical-align: top;
+  }
+
+  .logo img{
+    vertical-align: top;
+  }
+
+} 
 
 /* 데스크탑 스타일 7월27일 */
 @media screen and (min-width: 1000px){ /*1000px 이상은 데스크탑으로 보겠다는 의지*/
 
 }/*이런걸 검색해서 참고한다.  https://ricostacruz.com/til/css-media-query-breakpoints */
 
-/* a:link{
-  color: green;
-}
-a:visited{
-  color:grey;
-}
-a:hover, a:focus{
-  color: red[]
-} */
