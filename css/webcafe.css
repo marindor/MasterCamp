@@ -1,49 +1,94 @@
-@charset "utf-8";  /*@는 뭔가를 선언할 때 사용 HTML에서 UTF-8을 하면 CSS도 이렇게 해야함.*/
-
-/*다운로드가 필요한 것을 먼저 위치시키는게 좋다*/
-@import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-
+@charset "utf-8";
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
 @import url('./normalize.css');
-/* @import url('./reset.css'); reset.css는 요즘 거의 안쓴다. */
+@import url('./reset.css');
 
-
-/*기본 스타일*/
+/* 기본 스타일 */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 html{
   font-size: 10px;
 }
-
 body{
   font-family: 'Spoqa Han Sans', 'Sans-serif';
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4rem;
   color: #181818;
   background: #fff;
 }
-
 a{
-  color: inherit; /*a는 body의 자식이므로 상속을 지정하면 body것을 가져온다.*/
+  color: inherit;
   text-decoration: none;
 }
 
-/* 공통 스타일 7월27일 */
-
-
-/* 모바일 스타일 7월27일 */
-@media screen and (min-width: 320px) and (max-width:999px){ /*최소 사이즈는 고객 리서치로 결정*/
-  /*모바일 헤더*/
+/* 공통 스타일 */
+legend, .a11y-hidden{
+  position: absolute;
+  background: blue;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  margin: -1px;
+}
+/* Small 디바이스 스타일 */
+@media screen and (max-width: 319px){
   .header{
-    background: #38303e;
+    background: #38302e; 
+    color: #fff;
+    padding: 1em;
+  }
+  .member{
+    margin: 1em 0;
+  }
+  input[type="search"]{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    height: 30px;
+    padding: 2px 2px 2px 10px;
+    width: calc(100% - 30px - 1em);
+    font-size: 1.4rem;
+    margin-right: 0.5em;
+  }
+  .btn-search{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    font-size: 1.4rem;
+  }
+  .btn-search::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: url('./images/btn_search.png') no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/* 모바일 스타일 */
+@media screen and (min-width: 320px) and (max-width: 999px){
+  /* 모바일 헤더 */
+  .header{
+    background: #38302e; 
     color: #fff;
     display: flex;
-    flex-direction: row; /*row 즉 행방향 기준을 통해서 세로 정렬을 시도하고 있다.*/
-    flex-wrap: wrap;  /*nowrap은 줄바꿈 안함 */
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .logo, .member, .search-form{
-    width:100%;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
   }
-  /*모바일 멤버링크*/
+  /* 모바일 멤버링크 */
   .member{
     background: #988574;
     padding-top: 0.5em;
@@ -51,30 +96,63 @@ a{
     order: -1;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;   
+    justify-content: flex-end;
   }
   .member a{
     display: inline-block;
-    /* background: blue; */
     padding: 0.5em 1em;
     margin-right: -1em;
   }
   .member a:hover, .member a:focus{
     color: #ff0;
   }
-
-  .myModule{
-    vertical-align: top;
+  /* 모바일 로고 */
+  .logo{
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
-
   .logo img{
     vertical-align: top;
   }
+  /* 모바일 검색 폼 */
+  .search-form{
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .search-form fieldset{
+    font-size: 0;
+  }
+  input[type="search"]{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    height: 30px;
+    padding: 2px 2px 2px 10px;
+    width: calc(100% - 30px - 1em);
+    font-size: 1.4rem;
+    margin-right: 1em;
+  }
+  .btn-search{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    font-size: 1.4rem;
+  }
+  .btn-search::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: url('./images/btn_search.png') no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+  }
+}
 
-} 
+/* 데스크탑 스타일 */
+@media screen and (min-width: 1000px){
 
-/* 데스크탑 스타일 7월27일 */
-@media screen and (min-width: 1000px){ /*1000px 이상은 데스크탑으로 보겠다는 의지*/
-
-}/*이런걸 검색해서 참고한다.  https://ricostacruz.com/til/css-media-query-breakpoints */
-
+}
